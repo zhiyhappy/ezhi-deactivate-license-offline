@@ -31,7 +31,7 @@ variables:
     description: Licensing API Key
     default:  0000-0000-0000-0000-0000
     type_hint: text
-  - name: token-content
+  - name: token_content
     description: tokent content
     default: 
     type_hint: text

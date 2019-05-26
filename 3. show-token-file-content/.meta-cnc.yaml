@@ -35,9 +35,9 @@ variables:
     description: firewall api_key
     default: 0000-0000-0000-0000-0000
     type_hint: text
-  - name: token-name
+  - name: token_name
     description: firewall token-name
-    default: 
+    default: *.tok
     type_hint: text
 # ---------------------------------------------------------------------
 # end of variables section
@@ -48,7 +48,7 @@ variables:
 # files will load in the order listed
 snippets:
   - name: track
-    path: https://{{ host_ip }}/api/?type=op&cmd=<show><license-token-files><name>'{{ token-name }}'</name></license-token-files></show>&key={{ api_key }}
+    path: https://{{ host_ip }}/api/?type=op&cmd=<show><license-token-files><name>{{ token_name }}</name></license-token-files></show>&key={{ api_key }}
     operation: get
 # ---------------------------------------------------------------------
 # end of snippets section
