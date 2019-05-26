@@ -1,10 +1,10 @@
 # skillet preamble information used by panhandler
 # ---------------------------------------------------------------------
 # unique snippet name
-name: Step4-license-activate
+name: Step4-license-deactivate
 # label used for menu selection
-label: Step4-license-activate
-description: ezhi-license-activate
+label: Step4-license-deactivate
+description: ezhi-license-deactivate
 
 # type of device configuration
 # common types are panorama, panos, and template
