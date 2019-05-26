@@ -4,7 +4,7 @@
 name: Step3-show-token-content
 # label used for menu selection
 label: Step3-show-token-content
-description: ezhi-show-token-content
+description: ezhi-show-token-file-content
 
 # type of device configuration
 # common types are panorama, panos, and template
