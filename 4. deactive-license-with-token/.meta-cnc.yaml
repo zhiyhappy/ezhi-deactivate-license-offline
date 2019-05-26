@@ -4,7 +4,7 @@
 name: Step4-license-deactivate
 # label used for menu selection
 label: Step4-license-deactivate
-description: ezhi-license-deactivate
+description: ezhi-license-deactivate-with-token
 
 # type of device configuration
 # common types are panorama, panos, and template
