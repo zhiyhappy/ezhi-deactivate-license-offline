@@ -1,9 +1,9 @@
 # skillet preamble information used by panhandler
 # ---------------------------------------------------------------------
 # unique snippet name
-name: Step5-get-license-info
+name: Step5-PANOS-license-info
 # label used for menu selection
-label: Step5-get-license-info
+label: Step5-PANOS-license-info
 description: ezhi-get-system-license-info
 
 # type of device configuration
