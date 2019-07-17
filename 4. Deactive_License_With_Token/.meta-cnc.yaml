@@ -1,10 +1,10 @@
 # skillet preamble information used by panhandler
 # ---------------------------------------------------------------------
 # unique snippet name
-name: Step2-get-token-file-name
+name: Step4-deactivate-license-with-token
 # label used for menu selection
-label: Step2-get-token-file-name
-description: ezhi-get-token-file-name
+label: Step4-deactivate-license-with-token
+description: deactivate-license-with-token
 
 # type of device configuration
 # common types are panorama, panos, and template
@@ -16,7 +16,7 @@ extends:
 # grouping of like snippets for dynamic menu creation in panhandler
 labels:
   collection:
-    - ezhi-deactive-license
+    - ezhi-deactivate-license-offline
 
 # ---------------------------------------------------------------------
 # end of preamble section
@@ -27,13 +27,13 @@ labels:
 # type_hint defines the form field used by panhandler
 # type_hints can be text, ip_address, or dropdown
 variables:
-  - name: host_ip
-    description: Firewall host ip address
-    default: 192.168.55.10
+  - name: licensing_key
+    description: Licensing API Key
+    default:  0000-0000-0000-0000-0000
     type_hint: text
-  - name: api_key
-    description: firewall api_key
-    default: 0000-0000-0000-0000-0000
+  - name: token_content
+    description: tokent content
+    default: 
     type_hint: text
 # ---------------------------------------------------------------------
 # end of variables section
@@ -44,7 +44,11 @@ variables:
 # files will load in the order listed
 snippets:
   - name: track
-    path: https://{{ host_ip }}/api/?type=op&cmd=<request><license><deactivate><VM-Capacity><mode>manual</mode></VM-Capacity></deactivate></license></request>&key={{ api_key }}
-    operation: get
+    path: https://api.paloaltonetworks.com/api/license/deactivate
+    operation: post
+    payload: payload.j2
+    headers:
+      apiKey: '{{ licensing_key }}'
+      Content-Type: application/x-www-form-urlencoded
 # ---------------------------------------------------------------------
 # end of snippets section

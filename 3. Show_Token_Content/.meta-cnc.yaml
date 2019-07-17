@@ -4,7 +4,7 @@
 name: Step3-show-token-content
 # label used for menu selection
 label: Step3-show-token-content
-description: ezhi-show-token-content
+description: show-token-content
 
 # type of device configuration
 # common types are panorama, panos, and template
@@ -16,7 +16,7 @@ extends:
 # grouping of like snippets for dynamic menu creation in panhandler
 labels:
   collection:
-    - ezhi-deactive-license
+    - ezhi-deactivate-license-offline
 
 # ---------------------------------------------------------------------
 # end of preamble section
