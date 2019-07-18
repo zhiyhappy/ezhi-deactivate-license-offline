@@ -1,10 +1,10 @@
 # skillet preamble information used by panhandler
 # ---------------------------------------------------------------------
 # unique snippet name
-name: Step1-get-system-api-key
+name: create-token-file
 # label used for menu selection
-label: Step1-get-system-api-key
-description: get-system-api-key
+label: create-token-file
+description: create-token-file
 
 # type of device configuration
 # common types are panorama, panos, and template
@@ -31,13 +31,9 @@ variables:
     description: Firewall host ip address
     default: 192.168.55.10
     type_hint: text
-  - name: username
-    description: firewall username
-    default: admin
-    type_hint: text
-  - name: password
-    description: firewall password
-    default: password
+  - name: api_key
+    description: firewall api_key
+    default: 0000-0000-0000-0000-0000
     type_hint: text
 # ---------------------------------------------------------------------
 # end of variables section
@@ -47,8 +43,14 @@ variables:
 # snippets used for api configuration including xpath and element as file name
 # files will load in the order listed
 snippets:
-  - name: track
-    path: https://{{ host_ip }}/api/?type=keygen&user={{ username }}&password={{ password }}
+  - name: create-token-file
+    path: https://{{ host_ip }}/api/?type=op&cmd=<request><license><deactivate><VM-Capacity><mode>manual</mode></VM-Capacity></deactivate></license></request>&key={{ api_key }}
     operation: get
+    output_type: xml
+    outputs:
+      - name: token_msg
+        capture_pattern: result/msg/line
+      - name: token_name
+        capture_pattern: result/tokenfile
 # ---------------------------------------------------------------------
 # end of snippets section

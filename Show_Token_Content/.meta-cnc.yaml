@@ -1,9 +1,9 @@
 # skillet preamble information used by panhandler
 # ---------------------------------------------------------------------
 # unique snippet name
-name: Step3-show-token-content
+name: show-token-content
 # label used for menu selection
-label: Step3-show-token-content
+label: show-token-content
 description: show-token-content
 
 # type of device configuration
@@ -50,5 +50,9 @@ snippets:
   - name: track
     path: https://{{ host_ip }}/api/?type=op&cmd=<show><license-token-files><name>{{ token_name }}</name></license-token-files></show>&key={{ api_key }}
     operation: get
+    output_type: xml
+    outputs:
+      - name: token_content
+        capture_pattern: result/files/entry
 # ---------------------------------------------------------------------
 # end of snippets section
